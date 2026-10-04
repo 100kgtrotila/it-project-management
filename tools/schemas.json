@@ -1,6 +1,6 @@
 {
-  "schema_version": "1.18.0",
-  "updated": "2026-09-09",
+  "schema_version": "1.18.1",
+  "updated": "2026-10-04",
   "course": "Управління ІТ проєктами, 2026",
   "note": "Джерело правди для схем артефактів. Валідатор, умови робіт і шаблон репозиторію студента беруть колонки звідси. Правити тільки тут, далі перегенерувати SCHEMAS.md і шаблони.",
   "conventions": {
@@ -1233,7 +1233,7 @@
         {
           "id": "FC-2",
           "severity": "error",
-          "text": "remaining_points дорівнює сумі final_estimate історій сценарію"
+          "text": "remaining_points не більший за суму всіх final_estimate з estimates.csv (помилка), і хоча б один сценарій дорівнює сумі final_estimate історій REL-1 за колонкою release беклогу (інакше попередження)"
         },
         {
           "id": "FC-3",
@@ -2713,7 +2713,7 @@
     {
       "id": "X-3",
       "severity": "error",
-      "text": "remaining_points у forecast.csv дорівнює сумі final_estimate історій сценарію з estimates.csv"
+      "text": "remaining_points у forecast.csv звіряється з final_estimate з estimates.csv: сценарій весь перший реліз дорівнює сумі оцінок історій REL-1. Рахується правилом FC-2"
     },
     {
       "id": "X-4",

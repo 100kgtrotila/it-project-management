@@ -1,6 +1,6 @@
 # Схеми артефактів курсу «Управління ІТ проєктами»
 
-Згенеровано з `tools/schemas.json`, версія схеми **1.18.0**, оновлено 2026-09-09.
+Згенеровано з `tools/schemas.json`, версія схеми **1.18.1**, оновлено 2026-10-04.
 
 Файл не редагується руками: правиться спека, далі запускається
 `python3 tools/generate_schema_docs.py`.
@@ -520,7 +520,7 @@ scenario,remaining_points,simulations,p50_sprints,p85_sprints,p50_date,p85_date
 Правила файла:
 
 - `FC-1` (error): p85_sprints не менше за p50_sprints, p85_date не раніша за p50_date
-- `FC-2` (error): remaining_points дорівнює сумі final_estimate історій сценарію
+- `FC-2` (error): remaining_points не більший за суму всіх final_estimate з estimates.csv (помилка), і хоча б один сценарій дорівнює сумі final_estimate історій REL-1 за колонкою release беклогу (інакше попередження)
 - `FC-3` (error): Відстань між p50_date і p85_date дорівнює різниці p85_sprints і p50_sprints, помноженій на 14 днів: спринт у курсі двотижневий
 
 ### Реєстр ризиків, `lr11_risks_quality/risks.csv`
@@ -1011,7 +1011,7 @@ rule_id,case,mode,owner,check,why
 | :-: | :-: | --- |
 | `X-1` | error | Кожен story_id в estimates.csv, votes.csv, risks.csv, changelog.csv і flow.csv існує в backlog.csv |
 | `X-2` | error | Кожен stakeholder_id у raci.csv, communication.csv, success_criteria.csv і dashboard.csv існує в lr05_charter/stakeholders.csv |
-| `X-3` | error | remaining_points у forecast.csv дорівнює сумі final_estimate історій сценарію з estimates.csv |
+| `X-3` | error | remaining_points у forecast.csv звіряється з final_estimate з estimates.csv: сценарій весь перший реліз дорівнює сумі оцінок історій REL-1. Рахується правилом FC-2 |
 | `X-4` | warning | Сума hours категорії labor у budget.csv відрізняється від суми estimate_hours листових вузлів wbs.csv не більше ніж на 45 відсотків. Це перевірка порядку величини, а не рівності: кошторис рахується від стелі годин варіанта, а корінь WBS законно лежить між 70 і 100 відсотками тієї ж стелі |
 | `X-5` | warning | Кожна історія з release REL-1 у backlog.csv присутня в estimates.csv: план першого релізу оцінений |
 | `X-6` | error | Версія схеми в README.md вашого репозиторію збігається з версією цієї спеки |

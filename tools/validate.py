@@ -1112,15 +1112,25 @@ def rule_fc_3(table, tables, report, rule):
 def rule_fc_2(table, tables, report, rule):
     """Звірка обсягу сценарію з оцінками.
 
-    Спека не задає, які історії входять у сценарій, тому механічно перевіряється
-    те, що піддається перевірці: сценарій не може містити більше очок, ніж
-    оцінено взагалі, і щонайменше один сценарій має покривати весь оцінений обсяг.
+    Сценарій не може містити більше очок, ніж оцінено взагалі (помилка), і
+    щонайменше один сценарій має дорівнювати сумі оцінок першого релізу
+    (попередження). Склад першого релізу береться з колонки release беклогу;
+    якщо беклогу немає, сумою першого релізу вважається весь estimates.csv.
     """
     estimates = tables.get('lr08_poker/estimates.csv')
     if estimates is None:
         report.add(SKIPPED, table.path, 1, rule['id'], 'немає estimates.csv, звірка обсягу відкладена')
         return
     total = sum(num(v) for v in estimates.col('final_estimate') if v)
+    backlog = tables.get('lr06_backlog/backlog.csv')
+    target, scope = total, 'усіх оцінок'
+    if filled(backlog):
+        rel1 = set(backlog.cell(row, 'story_id') for row in backlog.rows
+                   if backlog.cell(row, 'release') == 'REL-1')
+        if rel1:
+            target = sum(num(estimates.cell(row, 'final_estimate')) for row in estimates.rows
+                         if estimates.cell(row, 'story_id') in rel1 and estimates.cell(row, 'final_estimate'))
+            scope = 'оцінок історій REL-1'
     matched = False
     for idx, row in enumerate(table.rows):
         remaining = num(table.cell(row, 'remaining_points'))
@@ -1128,11 +1138,12 @@ def rule_fc_2(table, tables, report, rule):
             report.add(rule['severity'], table.path, table.line(idx), rule['id'],
                        'сценарій «%s» має %s очок, а весь оцінений беклог це %s'
                        % (table.cell(row, 'scenario'), remaining, total))
-        if abs(remaining - total) <= 0.01:
+        if abs(remaining - target) <= 0.01:
             matched = True
     if not matched:
         report.add(WARNING, table.path, 1, rule['id'],
-                   'жоден сценарій не дорівнює сумі оцінок (%s): перевірте, який обсяг ви прогнозуєте' % total)
+                   'жоден сценарій не дорівнює сумі %s (%s): перевірте, який обсяг ви прогнозуєте'
+                   % (scope, target))
 
 
 def rule_rk_1(table, tables, report, rule):
