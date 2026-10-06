@@ -862,7 +862,7 @@ sprint,planned_points,actual_points,planned_cost_per_point,actual_cost_per_point
 Правила файла:
 
 - `PF-1` (error): planned_cost_per_point × planned_points дорівнює actual_cost_per_point × actual_points з точністю до одного відсотка: обидва добутки це вартість того самого спринта, і команда коштує стільки ж незалежно від того, скільки закрила
-- `PF-2` (error): variance_pct дорівнює (actual_cost_per_point − planned_cost_per_point) поділити на planned_cost_per_point і на 100, з точністю до 0.5
+- `PF-2` (error): variance_pct дорівнює (actual_cost_per_point − planned_cost_per_point), поділеному на planned_cost_per_point і помноженому на 100, з точністю до 0.5
 - `PF-3` (error): planned_cost_per_point однаковий в обох рядках: план береться з варіанта і між спринтами не змінюється
 - `PF-4` (warning): В обох спринтах actual_points дорівнює planned_points: план, який збігся двічі підряд, буває, але частіше це числа, підігнані під нуль відхилення
 

@@ -2274,7 +2274,7 @@
         {
           "id": "PF-2",
           "severity": "error",
-          "text": "variance_pct дорівнює (actual_cost_per_point − planned_cost_per_point) поділити на planned_cost_per_point і на 100, з точністю до 0.5"
+          "text": "variance_pct дорівнює (actual_cost_per_point − planned_cost_per_point), поділеному на planned_cost_per_point і помноженому на 100, з точністю до 0.5"
         },
         {
           "id": "PF-3",
