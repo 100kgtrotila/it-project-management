@@ -213,6 +213,8 @@ def check_value(table, line, name, col, value, enums, report):
         return
 
     if kind in ('int', 'number'):
+        if kind == 'int':
+            value = ascii_minus(value)
         pattern = INT_RE if kind == 'int' else NUMBER_RE
         if not pattern.match(value):
             report.add(ERROR, table.path, line, 'type',
@@ -260,9 +262,14 @@ def check_refs(spec_file, table, tables, report):
 
 # ---------------------------------------------------------------- правила файлів
 
+def ascii_minus(value):
+    """Знак мінус U+2212 у числі читається як звичайний дефіс: -10 і −10 це те саме."""
+    return value.replace('−', '-') if isinstance(value, str) else value
+
+
 def num(value, default=0.0):
     try:
-        return float(value)
+        return float(ascii_minus(value))
     except (TypeError, ValueError):
         return default
 
