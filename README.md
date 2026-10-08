@@ -14,8 +14,8 @@
 | Підгрупа | КН-41 |
 | Тема проєкту | Платформа обліку практик і стажувань: студент, база практики, керівник, звіти |
 | Варіант вхідних умов | V12 |
-| Трекер | |
-| Дошка | |
+| Трекер | GitHub Projects |
+| Дошка | [IT Project Management — LR4 Kanban](https://github.com/users/100kgtrotila/projects/1/views/1) |
 | Валюта проєкту | |
 | Contingency, % | |
 
