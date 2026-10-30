@@ -4,3 +4,4 @@ ST-02,Представник бухгалтерії,академія,low,high,ne
 ST-03,Студент на практиці,факультет,high,low,supporter,keep_informed,BA
 ST-04,Керівник від бази практики,база практики,high,low,neutral,keep_informed,BA
 ST-05,Адміністратор ІТ-служби,академія,low,high,neutral,keep_satisfied,DevOps
+ST-06,Представник служби інформаційної безпеки академії,академія,low,high,neutral,keep_satisfied,PM
