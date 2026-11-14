@@ -1,1 +1,6 @@
 role,fte,hours,rate,source,note
+PM,0.5,400,387.75,https://github.com/devua/csv/blob/master/salaries/2025_june_raw.csv,"Медіана зрізу DOU 2350 USD/місяць, n=393. Ставка = медіана / 160 × 26.4, масштаб під V12."
+BA,0.5,400,412.50,https://github.com/devua/csv/blob/master/salaries/2025_june_raw.csv,"Медіана зрізу DOU 2500 USD/місяць, n=233. Ставка = медіана / 160 × 26.4, масштаб під V12."
+Dev,1,800,528,https://github.com/devua/csv/blob/master/salaries/2025_june_raw.csv,"Медіана зрізу DOU 3200 USD/місяць, n=4842. Ставка = медіана / 160 × 26.4, масштаб під V12."
+QA,0.5,400,363,https://github.com/devua/csv/blob/master/salaries/2025_june_raw.csv,"Медіана зрізу DOU 2200 USD/місяць, n=1975. Ставка = медіана / 160 × 26.4, масштаб під V12."
+DevOps,0.25,200,660,https://github.com/devua/csv/blob/master/salaries/2025_june_raw.csv,"Медіана зрізу DOU 4000 USD/місяць, n=425. Ставка = медіана / 160 × 26.4, масштаб під V12."
