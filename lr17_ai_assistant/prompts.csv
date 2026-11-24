@@ -1,1 +1,6 @@
 run_id,date,tool,goal,artifact,has_input,iterations,result,note
+P-01,2026-11-24,"Anthropic Claude Sonnet 5, medium",Розібрати публічні нотатки зустрічі,lr17_ai_assistant/tasks.csv,yes,1,used_with_edits,Окремо збережено задачу про опис порядку роботи з фотографіями (AT-04).
+P-02,2026-11-24,"Anthropic Claude Sonnet 5, medium",Уточнити розбір та правила щодо дат і відповідальних,lr17_ai_assistant/tasks.csv,yes,2,used_with_edits,Перевірені пункти перенесено до переліку; формулювання про чисельність виправлено.
+P-03,2026-11-24,"Anthropic Claude Sonnet 5, medium",Знайти десять можливих причин провалу проєкту,lr17_ai_assistant/README.md,yes,1,used_with_edits,"Збережено гіпотезу щодо договорів і зафіксовано непідтверджене твердження щодо механізму захисту."
+P-04,2026-11-24,"Anthropic Claude Sonnet 5, medium",Скоротити формулювання тригера ризику R-04,lr11_risks_quality/risks.csv,yes,1,rejected,"Відповідь зберігає обидві умови, але чинне формулювання коротше й без двох послідовних переліків через «або»."
+P-05,2026-11-14,Codex,Узгодити опис стану S-11 у реакції на рецензію з журналом спринтів,lr10_review/README.md,yes,1,used,"Стан Ready замінено на результат перевірки від 14 листопада. Зміна є в коміті 4745e85."
